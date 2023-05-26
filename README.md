@@ -44,7 +44,7 @@ Distributed locks have the following features:
 - With lock failure mechanism, including automatic unlocking and deadlock prevention
 - With blocking feature, it automatically waits when the lock is not obtained, and automatically unlocks when the waiting time expires
 
-
+[ic-lock](https://github.com/ICPSwap-Labs/ic-lock)
 
 ## Saga
 
@@ -73,6 +73,8 @@ The proxy layer is mainly responsible for the construction of related data of se
 
 3. Service layer  
 The service layer is the core of the Saga coordinator and is used to provide services externally. Internally, it provides open API, state data manager, runtime data manager, process scheduler, retry mechanism, log management and other functions.
+
+[ic-saga](https://github.com/ICPSwap-Labs/ic-saga)
 
 ## Eventual consistency
 
@@ -107,12 +109,5 @@ The QueueManager is responsible for keeping the data in the queue ready for cons
 6. LoggerManager  
 The LoggerManager records all operation logs in the message queue, including push and consumption data, for data recovery and troubleshooting.
 
-## Ticket
+[ic-message-service](https://github.com/ICPSwap-Labs/ic-message-service)
 
-Even though we have done a lot of work before, there may still be a lot of unexpected accidents in practice, which cannot be solved by the system. The best way to solve these problems is to deal with them manually.
-We designed a simple ticket system. After failure of consistency coordination compensation, a ticket would be recorded and handled manually by system maintenance personnel.
-
-![order-system](https://github.com/ICPSwap-Labs/consistency/blob/main/order-system.png)
-
-In the ticket system, you can access the various components we provide: Lock, Saga coordinator, message queue. And according to the access components, provide the corresponding ticket module, to provide the system maintenance personnel to manually handle the problems. You can also add other open source components to enrich the ticket system and provide a one-stop solution for maintenance personnel.
- 
