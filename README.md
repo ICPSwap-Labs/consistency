@@ -85,7 +85,7 @@ We can use message queues to achieve eventual consistency across multi-canister 
 - In the message receiver side, the atomicity of performing local transactions and receiving messages. Ensure that the local transaction will be executed successfully after the message is received successfully
 - Prevents repeated consumption of messages when the messages are sent repeatedly
 
-![queue](https://github.com/ICPSwap-Labs/consistency/blob/main/ic-queue.png)
+![queue](https://github.com/ICPSwap-Labs/ic-message-service/raw/main/images/message-service.png)
 
 In our design, an internal queue is used to store messages, so as to ensure that messages are saved successfully. A scheduled task is used to synchronize local messages to the message queue periodically, and resend messages when sending fails.
 
